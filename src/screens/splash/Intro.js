@@ -10,7 +10,7 @@ import Indicator from '../../components/Indicator';
 
 const Intro = ({ navigation }) => {
   setTimeout(async () => {
-    navigation.replace('Splash2');
+    navigation.replace('Login');
   }, 2700);
 
   return (

@@ -4,6 +4,8 @@ import BottomRouter from './BottomRouter';
 import Intro from '../screens/splash/Intro';
 import Splash1 from '../screens/splash/Splash1';
 import Splash2 from '../screens/splash/Splash2';
+import LoginScreen from '../screens/login/LoginScreen';
+import CreateAccount from '../screens/login/CreateAccount';
 
 const Stack = createStackNavigator();
 
@@ -23,6 +25,15 @@ const Router = () => (
       name="Splash2"
       component={Splash2}
       options={{ headerShown: false }}
+    />
+    <Stack.Screen
+      name="Login"
+      component={LoginScreen}
+      options={{ headerShown: false }}
+    />
+    <Stack.Screen
+      name="Baru"
+      component={CreateAccount}
     />
     <Stack.Screen
       name="Beranda"
