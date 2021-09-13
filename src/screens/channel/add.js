@@ -1,5 +1,4 @@
 /* eslint-disable react/jsx-filename-extension */
-import { NavigationContainer } from '@react-navigation/native';
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import Button from '../../components/Button';
@@ -30,7 +29,7 @@ const AddChannelScreen = ({ navigation }) => {
       .then(() => {
         setChannelList(data);
         showSuccess('Data berhasil disimpan');
-        navigation.navigate('ChannelScreen');
+        navigation.navigate('Channel');
       })
       .catch((e) => {
         console.log('catch error: ', e);

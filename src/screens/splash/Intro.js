@@ -16,6 +16,7 @@ const Intro = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <View style={styles.logo}>
+        <Gap height={30} />
         <Image source={require('../../assets/images/usu.png')} style={styles.image} />
         <Gap height={20} />
         <Text style={styles.text}>Sedang Memuat...</Text>

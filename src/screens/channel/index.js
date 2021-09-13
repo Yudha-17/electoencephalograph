@@ -20,7 +20,7 @@ const ChannelScreen = ({ navigation }) => {
   const renderItem = ({ item }) => (
     <TouchableOpacity
       onPress={() => {
-        navigation.navigate('UpdateChannelScreen', {
+        navigation.navigate('Update Channel', {
           id: item.id,
           name: item.name,
           api: item.api,
@@ -67,7 +67,7 @@ const ChannelScreen = ({ navigation }) => {
       <Button
         title="Tambah Channel"
         onPress={() => {
-          navigation.navigate('AddChannelScreen');
+          navigation.navigate('Tambah Channel');
         }}
       />
     </SafeAreaView>

@@ -1,11 +1,15 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
+import { Button } from 'react-native';
 import BottomRouter from './BottomRouter';
 import Intro from '../screens/splash/Intro';
 import Splash1 from '../screens/splash/Splash1';
-import Splash2 from '../screens/splash/Splash2';
 import LoginScreen from '../screens/login/LoginScreen';
-import CreateAccount from '../screens/login/CreateAccount';
+import User from '../screens/user/User';
+import AddChannelScreen from '../screens/channel/add';
+import UpdateChannelScreen from '../screens/channel/update';
+import ChartScreen from '../screens/home/ChartScreen';
+import AddChartScreen from '../screens/home/AddChartScreen';
 
 const Stack = createStackNavigator();
 
@@ -22,22 +26,54 @@ const Router = () => (
       options={{ headerShown: false }}
     />
     <Stack.Screen
-      name="Splash2"
-      component={Splash2}
-      options={{ headerShown: false }}
-    />
-    <Stack.Screen
       name="Login"
       component={LoginScreen}
       options={{ headerShown: false }}
     />
     <Stack.Screen
-      name="Baru"
-      component={CreateAccount}
-    />
-    <Stack.Screen
       name="Beranda"
       component={BottomRouter}
+      options={{ headerShown: false }}
+    />
+    <Stack.Screen
+      name="Chart"
+      component={ChartScreen}
+      options={({ navigation, route }) => ({
+        headerTitle: 'Grafik Kurva',
+        headerRight: () => (
+          <Button
+            onPress={() => {
+              navigation.navigate('Tambah Chart', {
+                id: route.params.id,
+                apiKey: route.params.apiKey,
+              });
+            }}
+            title="Tambah"
+            color="blue"
+          />
+        ),
+      })}
+    />
+    <Stack.Screen
+      name="Tambah Chart"
+      component={AddChartScreen}
+      options={{
+        title: 'Tambah Data',
+      }}
+    />
+    <Stack.Screen
+      name="Tambah Channel"
+      component={AddChannelScreen}
+      options={{ title: 'Tambah Channel' }}
+    />
+    <Stack.Screen
+      name="Update Channel"
+      component={UpdateChannelScreen}
+      options={{ title: 'Update Channel' }}
+    />
+    <Stack.Screen
+      name="Detail Akun"
+      component={User}
       options={{ headerShown: false }}
     />
   </Stack.Navigator>

@@ -7,7 +7,7 @@ import {
 import Button from '../../components/Button';
 import Gap from '../../components/Gap';
 import Input from '../../components/Input';
-import { colorDanger } from '../../styles/colors';
+import { colorDanger } from '../../styles/Colors';
 import {
   ASGet, ASSet, showError, showSuccess,
 } from '../../utils';
@@ -34,7 +34,7 @@ const UpdateChannelScreen = ({ route, navigation }) => {
         setChannelList(currentData);
         showSuccess('Data berhasil disimpan');
 
-        navigation.navigate('ChannelScreen');
+        navigation.navigate('Channel');
       })
       .catch((e) => {
         console.log('catch: ', e);
@@ -60,7 +60,7 @@ const UpdateChannelScreen = ({ route, navigation }) => {
               setChannelList(currentData);
               showSuccess('Data berhasil dihapus');
 
-              navigation.navigate('ChannelScreen');
+              navigation.navigate('Channel');
             })
             .catch((e) => {
               console.log('catch: ', e);

@@ -1,21 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import {
-  Alert, Image, SafeAreaView, StyleSheet, Text, TouchableOpacity,
+  Alert, Image, SafeAreaView, StyleSheet, Text, TouchableOpacity, View,
 } from 'react-native';
 import axios from 'axios';
+import FAIcon from 'react-native-vector-icons/FontAwesome';
 import Gap from '../../components/Gap';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
-import { ASGet, ASSet } from '../../utils/index';
 import { colorLabel, colorTheme } from '../../styles/Colors';
-import { APP_NAME, APP_VERSION } from '../../config';
+import { API_BASE_URL, APP_NAME, APP_VERSION } from '../../config';
 
 const LoginScreen = ({ navigation }) => {
   const [isLoading, setIsLoading] = useState(false);
-  const [userName, setUserName] = useState('');
-  const [password, setPassword] = useState('');
+  const [userName, setUserName] = useState('eve.holt@reqres.in');
+  const [password, setPassword] = useState('cityslicka');
 
   const login = async () => {
+    // navigation.replace('Splash1');
     setIsLoading(true);
 
     const form = {
@@ -23,11 +24,10 @@ const LoginScreen = ({ navigation }) => {
       password,
     };
 
-    await axios.post(`${API_BASE_URL}login`, form)
+    await axios.post(`${API_BASE_URL}users?per_page=20`)
       .then((response) => {
         if (response && response.status === 200) {
           if (response.data.token) {
-            // Simpan Token Ke Asynchron Set
             ASSet('token', response.data.token);
             navigation.replace('Beranda');
           }
@@ -47,7 +47,13 @@ const LoginScreen = ({ navigation }) => {
       <Gap height={80} />
       <Image source={require('../../assets/images/usu.png')} style={styles.image} />
       <Gap height={5} />
-      <Text style={styles.title}>{APP_NAME}</Text>
+      <View style={{ flexDirection: 'row' }}>
+        <Text style={styles.title}>
+          {APP_NAME}
+          {' '}
+        </Text>
+        <FAIcon name="copyright" size={15} />
+      </View>
       <Gap height={70} />
       <Input
         label="Username"
@@ -71,10 +77,11 @@ const LoginScreen = ({ navigation }) => {
       />
       <Gap height={15} />
       <TouchableOpacity onPress={() => {
-        navigation.navigate('Baru');
+        Alert.alert('Informasi Login',
+          'Untuk informasi lebih lanjut, hubungi kami');
       }}
       >
-        <Text style={styles.label}>Belum punya akun.?</Text>
+        <Text style={styles.label}>Butuh bantuan login?</Text>
       </TouchableOpacity>
       <Gap height={20} />
       <Text>
@@ -105,7 +112,7 @@ const styles = StyleSheet.create({
     color: colorLabel,
   },
   title: {
-    fontSize: 25,
-    fontFamily: 'PlayfairDisplaySC-Black',
+    fontSize: 26,
+    fontFamily: 'Montserrat-Medium',
   },
 });

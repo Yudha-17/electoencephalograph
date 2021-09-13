@@ -9,7 +9,7 @@ const Splash1 = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Welcome Back, Bobby.</Text>
+      <Text style={styles.text}>Hello, There.!</Text>
     </View>
   );
 };

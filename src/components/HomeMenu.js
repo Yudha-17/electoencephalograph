@@ -1,4 +1,4 @@
-import {useNavigation} from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import {
   Dimensions,
@@ -7,14 +7,13 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import FaIcon from 'react-native-vector-icons/FontAwesome';
 import FA5Icon from 'react-native-vector-icons/FontAwesome5';
 import FIcon from 'react-native-vector-icons/Fontisto';
 import MCIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import SLIcon from 'react-native-vector-icons/SimpleLineIcons';
 import Card from './Card';
 
-const HomeMenu = ({item}) => {
+const HomeMenu = ({ item }) => {
   const sizeMenu = 35;
   const navigation = useNavigation();
 
@@ -31,17 +30,19 @@ const HomeMenu = ({item}) => {
                 api: item.api,
                 id: 3,
               });
-            }}>
+            }}
+          >
             <Card style={styles.menu}>
               <MCIcon
                 name="temperature-celsius"
-                color={'red'}
+                color="red"
                 size={sizeMenu}
               />
               <Text
                 style={styles.textMenu}
                 adjustsFontSizeToFit
-                numberOfLines={2}>
+                numberOfLines={2}
+              >
                 Temperature
               </Text>
             </Card>
@@ -54,13 +55,15 @@ const HomeMenu = ({item}) => {
                 api: item.api,
                 id: 4,
               });
-            }}>
+            }}
+          >
             <Card style={styles.menu}>
               <MCIcon name="atom-variant" color="#b103fc" size={sizeMenu} />
               <Text
                 style={styles.textMenu}
                 adjustsFontSizeToFit
-                numberOfLines={2}>
+                numberOfLines={2}
+              >
                 NH2
               </Text>
             </Card>
@@ -73,13 +76,15 @@ const HomeMenu = ({item}) => {
                 api: item.api,
                 id: 7,
               });
-            }}>
+            }}
+          >
             <Card style={styles.menu}>
               <FIcon name="laboratory" color="#fc0362" size={sizeMenu} />
               <Text
                 style={styles.textMenu}
                 adjustsFontSizeToFit
-                numberOfLines={2}>
+                numberOfLines={2}
+              >
                 H2S
               </Text>
             </Card>
@@ -94,13 +99,15 @@ const HomeMenu = ({item}) => {
                 api: item.api,
                 id: 5,
               });
-            }}>
+            }}
+          >
             <Card style={styles.menu}>
               <MCIcon name="air-humidifier" color="blue" size={sizeMenu} />
               <Text
                 style={styles.textMenu}
                 adjustsFontSizeToFit
-                numberOfLines={2}>
+                numberOfLines={2}
+              >
                 Humidity
               </Text>
             </Card>
@@ -113,7 +120,8 @@ const HomeMenu = ({item}) => {
                 api: item.api,
                 id: 5,
               });
-            }}>
+            }}
+          >
             <Card style={styles.menu}>
               <MCIcon
                 name="car-turbocharger"
@@ -123,7 +131,8 @@ const HomeMenu = ({item}) => {
               <Text
                 style={styles.textMenu}
                 adjustsFontSizeToFit
-                numberOfLines={2}>
+                numberOfLines={2}
+              >
                 CO
               </Text>
             </Card>
@@ -136,13 +145,15 @@ const HomeMenu = ({item}) => {
                 api: item.api,
                 id: 8,
               });
-            }}>
+            }}
+          >
             <Card style={styles.menu}>
               <FIcon name="atom" color="#03fc84" size={sizeMenu} />
               <Text
                 style={styles.textMenu}
                 adjustsFontSizeToFit
-                numberOfLines={2}>
+                numberOfLines={2}
+              >
                 Dust Particles
               </Text>
             </Card>
@@ -157,13 +168,15 @@ const HomeMenu = ({item}) => {
                 api: item.api,
                 id: 3,
               });
-            }}>
+            }}
+          >
             <Card style={styles.menu}>
               <SLIcon name="chemistry" color="orange" size={sizeMenu} />
               <Text
                 style={styles.textMenu}
                 adjustsFontSizeToFit
-                numberOfLines={2}>
+                numberOfLines={2}
+              >
                 NO2
               </Text>
             </Card>
@@ -176,13 +189,15 @@ const HomeMenu = ({item}) => {
                 api: item.api,
                 id: 6,
               });
-            }}>
+            }}
+          >
             <Card style={styles.menu}>
               <FA5Icon name="soap" color="#b1fc03" size={sizeMenu} />
               <Text
                 style={styles.textMenu}
                 adjustsFontSizeToFit
-                numberOfLines={2}>
+                numberOfLines={2}
+              >
                 SO2
               </Text>
             </Card>
@@ -195,7 +210,7 @@ const HomeMenu = ({item}) => {
 
 export default HomeMenu;
 
-const {width} = Dimensions.get('window');
+const { width } = Dimensions.get('window');
 
 const styles = StyleSheet.create({
   container: {

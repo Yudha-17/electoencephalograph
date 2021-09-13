@@ -2,13 +2,13 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import {
-  SafeAreaView, StyleSheet, Text, View,
+  SafeAreaView, StyleSheet,
 } from 'react-native';
-import Button from '../components/Button';
-import Gap from '../components/Gap';
-import Input from '../components/Input';
-import { API_THING_SPEAK } from '../config';
-import { showError, showSuccess } from '../utils';
+import Button from '../../components/Button';
+import Gap from '../../components/Gap';
+import Input from '../../components/Input';
+import { API_THING_SPEAK } from '../../config/index';
+import { showError, showSuccess } from '../../utils/index';
 
 const AddChartScreen = ({ navigation, route }) => {
   const [isLoading, setIsLoading] = useState(false);
@@ -21,7 +21,7 @@ const AddChartScreen = ({ navigation, route }) => {
       .then((response) => {
         if (response && response.data[`field${route.params.id}`]) {
           showSuccess('Data berhasil dikirim');
-          navigation.navigate('ChartScreen');
+          navigation.navigate('Chart');
         }
       })
       .catch((response) => {
